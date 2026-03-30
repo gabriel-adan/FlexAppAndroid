@@ -92,6 +92,7 @@ dependencies {
     testImplementation(libs.androidx.espresso.core)
     testImplementation(libs.fragment.testing)
     testImplementation(libs.navigation.testing)
+    testImplementation(libs.espresso.contrib)
     debugImplementation(libs.fragment.testing.manifest)
 
     androidTestImplementation(libs.androidx.junit)

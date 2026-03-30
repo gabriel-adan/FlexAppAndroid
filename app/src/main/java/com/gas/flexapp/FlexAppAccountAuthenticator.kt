@@ -3,17 +3,13 @@ package com.gas.flexapp
 import android.accounts.AbstractAccountAuthenticator
 import android.accounts.Account
 import android.accounts.AccountAuthenticatorResponse
-import android.accounts.AccountManager
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import com.gas.flexapp.network.AuthService
-import com.gas.flexapp.ui.LogInActivity
 
 class FlexAppAccountAuthenticator(
-    private val context: Context,
-    private val authService: AuthService
+    private val context: Context
 ) : AbstractAccountAuthenticator(context) {
+
     override fun editProperties(
         response: AccountAuthenticatorResponse?,
         accountType: String?
@@ -45,26 +41,7 @@ class FlexAppAccountAuthenticator(
         authTokenType: String?,
         options: Bundle?
     ): Bundle {
-        val accountManager = AccountManager.get(context)
-        var accessToken = accountManager.peekAuthToken(account, authTokenType)
-        if (accessToken.isNullOrEmpty()) {
-            val intent = Intent(context, LogInActivity::class.java).apply {
-                putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response)
-            }
-            val versionKey = context.getString(R.string.version_id)
-            val versionId = accountManager.getUserData(account, versionKey)
-            return Bundle().apply {
-                putParcelable(AccountManager.KEY_INTENT, intent)
-                putInt(versionKey, versionId.toInt())
-            }
-        } else {
-            val userName = accountManager.getUserData(account, AccountManager.KEY_ACCOUNT_NAME)
-            val password = accountManager.getUserData(account, AccountManager.KEY_PASSWORD)
-            println(userName)
-            println(password)
-        }
-
-        return options!!
+        TODO("Not yet implemented")
     }
 
     override fun getAuthTokenLabel(authTokenType: String?): String {

@@ -1,0 +1,77 @@
+{
+  "id": 11,
+  "type": "side_menu",
+  "version": "1.0.0",
+  "menuItems": [
+    {
+      "id": 13,
+      "icon": "",
+      "type": "menu_item",
+      "label": "Productos",
+      "action": "navigation",
+      "version": "1.0.0",
+      "navigation": {
+        "type": "navigation",
+        "title": "",
+        "viewKey": "1754939266574",
+        "sourceId": "1754939266574",
+        "paramValues": [],
+        "destinationId": 66
+      }
+    },
+    {
+      "id": 13,
+      "icon": "",
+      "type": "menu_item",
+      "label": "Incidentes",
+      "action": "navigation",
+      "version": "1.0.0",
+      "navigation": {
+        "type": "navigation",
+        "title": "",
+        "viewKey": "1755042381594",
+        "sourceId": "1755042381594",
+        "paramValues": [
+          {
+            "name": "id",
+            "type": "int",
+            "value": null
+          }
+        ],
+        "destinationId": 57
+      }
+    },
+    {
+      "id": 13,
+      "icon": "",
+      "type": "menu_item",
+      "label": "Alta de producto",
+      "action": "navigation",
+      "version": "1.0.0",
+      "navigation": {
+        "type": "navigation",
+        "title": "",
+        "viewKey": "1754940958966",
+        "sourceId": "1754940958966",
+        "paramValues": [],
+        "destinationId": 72
+      }
+    },
+    {
+      "id": 13,
+      "icon": "",
+      "type": "menu_item",
+      "label": "Home",
+      "action": "navigation",
+      "version": "1.0.0",
+      "navigation": {
+        "type": "navigation",
+        "title": "",
+        "viewKey": "1755477628620",
+        "sourceId": "1755477628620",
+        "paramValues": [],
+        "destinationId": 61
+      }
+    }
+  ]
+}

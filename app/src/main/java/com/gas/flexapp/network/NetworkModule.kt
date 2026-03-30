@@ -79,16 +79,11 @@ object NetworkModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://api.tuapp.com")
+            .baseUrl("https://api.com")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-
-    private val builder = Retrofit.Builder()
-        .baseUrl("https://jsonplaceholder.typicode.com")
-        .addConverterFactory(NullOnEmptyConverterFactory())
-        .addConverterFactory(GsonConverterFactory.create())
 
     @Provides
     @Singleton
@@ -96,16 +91,16 @@ object NetworkModule {
         return AccountManager.get(context)
     }
 
-    private var retrofit = builder.build()
-
     @Provides
-    @Singleton
     fun bindAuthService(): AuthService {
-        return retrofit.create(AuthService::class.java)
+        val builder = Retrofit.Builder()
+            .baseUrl("https://auth.api.com")
+            .addConverterFactory(NullOnEmptyConverterFactory())
+            .addConverterFactory(GsonConverterFactory.create())
+        return builder.build().create(AuthService::class.java)
     }
 
     @Provides
-    @Singleton
     fun bindRequestService(retrofit: Retrofit): RequestService {
         return retrofit.create(RequestService::class.java)
     }

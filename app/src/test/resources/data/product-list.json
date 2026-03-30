@@ -1,0 +1,24 @@
+{
+  "id": 3,
+  "type": "list",
+  "action": "navigation",
+  "version": "1.0.0",
+  "sourceUri": "http://localhost:4873/AuthorizedBearer/GetProductList",
+  "navigation": {
+    "type": "navigation",
+    "title": "Alta de producto",
+    "viewKey": "1754940958966",
+    "sourceId": "1754939266574",
+    "paramValues": [],
+    "destinationId": 73
+  },
+  "itemTemplate": {
+    "id": 4,
+    "type": "single_item",
+    "version": "1.0.0",
+    "idFieldName": "id",
+    "idFieldType": "int",
+    "titleFieldName": "code",
+    "subTitleFieldName": "description"
+  }
+}

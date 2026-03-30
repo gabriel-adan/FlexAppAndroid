@@ -1,0 +1,9 @@
+{
+  "url": "http://localhost:4873/Authenticator/MobileLogIn",
+  "type": "auth",
+  "claims": [],
+  "userFieldName": "userName",
+  "tokenFieldName": "accessToken",
+  "passwordFieldName": "password",
+  "responseErrorMessageFieldName": "message"
+}

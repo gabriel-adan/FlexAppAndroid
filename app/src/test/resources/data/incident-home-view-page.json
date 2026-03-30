@@ -1,0 +1,75 @@
+{
+  "id": 1,
+  "menu": null,
+  "type": "view_page",
+  "version": "1.0.0",
+  "components": [
+    {
+      "id": 14,
+      "text": "CADGA5 CON4",
+      "type": "label",
+      "style": {
+        "type": "default",
+        "gravity": "none",
+        "textSize": null,
+        "fontStyle": "bold",
+        "textColor": null,
+        "paddingTop": 15,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingBottom": 0,
+        "textAlignment": "center",
+        "backgroundColor": null
+      },
+      "version": "1.0.0"
+    },
+    {
+      "id": 14,
+      "text": "Tienes incidentes asignados, revisa a la brevedad tus solicitudes!",
+      "type": "label",
+      "style": {
+        "type": "default",
+        "gravity": "none",
+        "textSize": null,
+        "fontStyle": "normal",
+        "textColor": "#949494",
+        "paddingTop": 20,
+        "paddingLeft": 20,
+        "paddingRight": 20,
+        "paddingBottom": 0,
+        "textAlignment": "center",
+        "backgroundColor": null
+      },
+      "version": "1.0.0"
+    },
+    {
+      "id": 19,
+      "text": "Incidentes",
+      "type": "button",
+      "shape": "none",
+      "style": {
+        "type": "button",
+        "gravity": "none",
+        "textSize": null,
+        "fontStyle": "normal",
+        "textColor": null,
+        "paddingTop": 30,
+        "paddingLeft": 20,
+        "paddingRight": 20,
+        "paddingBottom": 15,
+        "textAlignment": "none",
+        "backgroundColor": null
+      },
+      "action": "navigation",
+      "version": "1.0.0",
+      "navigation": {
+        "type": "navigation",
+        "title": "Gestión de incidentes",
+        "viewKey": "1755042381594",
+        "sourceId": "1755477628620",
+        "paramValues": [],
+        "destinationId": 54
+      }
+    }
+  ]
+}

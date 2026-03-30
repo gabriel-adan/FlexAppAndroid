@@ -1,0 +1,270 @@
+{
+  "id": 2,
+  "type": "form",
+  "navBack": true,
+  "version": "1.0.0",
+  "endpoint": "http://localhost:4873/AuthorizedBearer/CreateProduct",
+  "components": [
+    {
+      "id": 14,
+      "text": "Categoría",
+      "type": "label",
+      "style": {
+        "type": "default",
+        "gravity": "none",
+        "textSize": 15,
+        "fontStyle": "normal",
+        "textColor": null,
+        "paddingTop": 0,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingBottom": 0,
+        "textAlignment": "none",
+        "backgroundColor": null
+      },
+      "version": "1.0.0"
+    },
+    {
+      "id": 10,
+      "type": "select",
+      "style": {
+        "type": "default",
+        "gravity": "none",
+        "textSize": 15,
+        "fontStyle": "normal",
+        "textColor": null,
+        "paddingTop": 0,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingBottom": 0,
+        "textAlignment": "none",
+        "backgroundColor": null
+      },
+      "value": "",
+      "options": [],
+      "version": "1.0.0",
+      "dataType": "int",
+      "fieldName": "categoryId",
+      "observers": [],
+      "optionModel": {
+        "text": "name",
+        "value": "id"
+      },
+      "defaultValue": null,
+      "optionSource": {
+        "type": "remote",
+        "sourceKey": "categories"
+      },
+      "statusConditions": {}
+    },
+    {
+      "id": 14,
+      "text": "Especificación de producto",
+      "type": "label",
+      "style": {
+        "type": "default",
+        "gravity": "none",
+        "textSize": 15,
+        "fontStyle": "normal",
+        "textColor": null,
+        "paddingTop": 0,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingBottom": 0,
+        "textAlignment": "none",
+        "backgroundColor": null
+      },
+      "version": "1.0.0"
+    },
+    {
+      "id": 10,
+      "type": "select",
+      "style": {
+        "type": "default",
+        "gravity": "none",
+        "textSize": 15,
+        "fontStyle": "normal",
+        "textColor": null,
+        "paddingTop": 0,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingBottom": 0,
+        "textAlignment": "none",
+        "backgroundColor": null
+      },
+      "value": "",
+      "options": [],
+      "version": "1.0.0",
+      "dataType": "int",
+      "fieldName": "specificationId",
+      "observers": [],
+      "optionModel": {
+        "text": "description",
+        "value": "id"
+      },
+      "defaultValue": null,
+      "optionSource": {
+        "type": "remote",
+        "sourceKey": "specifications"
+      },
+      "statusConditions": {}
+    },
+    {
+      "id": 8,
+      "hint": null,
+      "type": "labeled_input",
+      "label": "Código",
+      "style": {
+        "type": "default",
+        "gravity": "none",
+        "textSize": 15,
+        "fontStyle": "normal",
+        "textColor": null,
+        "paddingTop": 0,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingBottom": 0,
+        "textAlignment": "none",
+        "backgroundColor": null
+      },
+      "value": null,
+      "version": "1.0.0",
+      "dataType": "string",
+      "fieldName": "code",
+      "validation": null,
+      "defaultValue": null
+    },
+    {
+      "id": 8,
+      "hint": null,
+      "type": "labeled_input",
+      "label": "Precio",
+      "style": {
+        "type": "default",
+        "gravity": "none",
+        "textSize": 15,
+        "fontStyle": "normal",
+        "textColor": null,
+        "paddingTop": 0,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingBottom": 0,
+        "textAlignment": "none",
+        "backgroundColor": null
+      },
+      "value": null,
+      "version": "1.0.0",
+      "dataType": "float",
+      "fieldName": "price",
+      "validation": null,
+      "defaultValue": null
+    },
+    {
+      "id": 8,
+      "hint": null,
+      "type": "labeled_input",
+      "label": "Marca",
+      "style": {
+        "type": "default",
+        "gravity": "none",
+        "textSize": 15,
+        "fontStyle": "normal",
+        "textColor": null,
+        "paddingTop": 0,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingBottom": 0,
+        "textAlignment": "none",
+        "backgroundColor": null
+      },
+      "value": null,
+      "version": "1.0.0",
+      "dataType": "string",
+      "fieldName": "brand",
+      "validation": null,
+      "defaultValue": null
+    },
+    {
+      "id": 8,
+      "hint": null,
+      "type": "labeled_input",
+      "label": "Detalle",
+      "style": {
+        "type": "default",
+        "gravity": "none",
+        "textSize": 15,
+        "fontStyle": "normal",
+        "textColor": null,
+        "paddingTop": 0,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingBottom": 0,
+        "textAlignment": "none",
+        "backgroundColor": null
+      },
+      "value": null,
+      "version": "1.0.0",
+      "dataType": "string",
+      "fieldName": "detail",
+      "validation": null,
+      "defaultValue": null
+    },
+    {
+      "id": 8,
+      "hint": null,
+      "type": "labeled_input",
+      "label": "Descripción",
+      "style": {
+        "type": "default",
+        "gravity": "none",
+        "textSize": 15,
+        "fontStyle": "normal",
+        "textColor": null,
+        "paddingTop": 0,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingBottom": 0,
+        "textAlignment": "none",
+        "backgroundColor": null
+      },
+      "value": null,
+      "version": "1.0.0",
+      "dataType": "string",
+      "fieldName": "description",
+      "validation": null,
+      "defaultValue": null
+    }
+  ],
+  "dataSource": {
+    "url": "http://localhost:4873/AuthorizedBearer/GetData",
+    "type": "remote",
+    "requestType": "GET",
+    "responseType": "object"
+  },
+  "editSource": null,
+  "navigation": {
+    "includeArguments": [],
+    "expectedArguments": []
+  },
+  "submitButton": {
+    "text": "Enviar",
+    "type": "button",
+    "style": {
+      "type": "button",
+      "shape": "rounded",
+      "gravity": "none",
+      "textSize": null,
+      "fontStyle": "normal",
+      "textColor": null,
+      "paddingTop": 0,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "paddingBottom": 0,
+      "textAlignment": "none",
+      "backgroundColor": "#209CEE"
+    },
+    "action": "submit"
+  },
+  "appendToPrevList": true,
+  "updateProperties": []
+}

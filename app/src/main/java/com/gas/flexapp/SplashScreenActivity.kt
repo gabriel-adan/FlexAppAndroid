@@ -51,10 +51,10 @@ class SplashScreenActivity : AppCompatActivity() {
                     RESULT_OK -> {
                         it.data?.also { data ->
                             val authTokenType = getString(R.string.token_type)
-                            val accessToken = data.getStringExtra(authTokenType) + ""
+                            val accessToken = data.getStringExtra(authTokenType) ?: ""
                             val encryptedAccessToken = flexAppViewModel.encrypt(accessToken)
-                            val userName = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME) + ""
-                            val password = data.getStringExtra(AccountManager.KEY_PASSWORD) + ""
+                            val userName = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME) ?: ""
+                            val password = data.getStringExtra(AccountManager.KEY_PASSWORD) ?: ""
                             val encryptedPassword = flexAppViewModel.encrypt(password)
                             val account = Account(userName, this.getString(R.string.account_type))
                             val fullNameKey = getString(R.string.full_name)

@@ -1,0 +1,82 @@
+{
+  "id": 16,
+  "type": "expandable_list",
+  "action": "navigation",
+  "version": "1.0.0",
+  "sourceUri": "http://localhost:4873/AuthorizedBearer/GetIncidentList",
+  "navigation": {
+    "type": "navigation",
+    "title": "Gestión de incidente",
+    "viewKey": "1755202876789",
+    "sourceId": "1755042381594",
+    "paramValues": [
+      {
+        "name": "id",
+        "type": "int",
+        "value": null
+      }
+    ],
+    "destinationId": 67
+  },
+  "bodyItemTemplate": {
+    "type": "expandable_row_body_item",
+    "idFieldName": "id",
+    "idFieldType": "int",
+    "propertyTemplates": [
+      {
+        "label": "Trouble",
+        "dataType": "string",
+        "template": "",
+        "propertyName": "trouble"
+      },
+      {
+        "label": "Fecha de creación",
+        "dataType": "date",
+        "template": "",
+        "propertyName": "createdDate"
+      },
+      {
+        "label": "FeederId",
+        "dataType": "string",
+        "template": "ET: {feederId}",
+        "propertyName": "feederId"
+      },
+      {
+        "label": "Estación eléctrica",
+        "dataType": "string",
+        "template": "",
+        "propertyName": "electricStation"
+      },
+      {
+        "label": "Comentarios de despacho",
+        "dataType": "string",
+        "template": "",
+        "propertyName": "remarksDispatch"
+      }
+    ]
+  },
+  "headerItemTemplate": {
+    "type": "label_status_color_expandable_item",
+    "idFieldName": "id",
+    "idFieldType": "int",
+    "statusTexts": {
+      "1": "Asignada",
+      "2": "Despachada",
+      "3": "En gestión",
+      "4": "Liberada"
+    },
+    "editorValues": {
+      "color": "#FFFFFF",
+      "label": "947452",
+      "status": "Status"
+    },
+    "statusColors": {
+      "1": "#6af233",
+      "2": "#f2f21d",
+      "3": "#1d68f2",
+      "4": "#cfcfcf"
+    },
+    "labelFieldName": "incidentId",
+    "statusFieldName": "status"
+  }
+}
