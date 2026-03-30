@@ -18,6 +18,8 @@ kotlin {
 }
 
 dependencies {
+    implementation(libs.gson)
+    implementation(files("../libs/mapping.jar"))
     testImplementation(libs.junit)
 }
 

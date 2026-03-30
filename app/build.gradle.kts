@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -6,12 +9,16 @@ plugins {
     alias(libs.plugins.hilt)
 }
 
+val localProperties = Properties().apply {
+    load(FileInputStream(rootProject.file("local.properties")))
+}
+
 android {
-    namespace = "com.gas.androidtemplate"
+    namespace = "com.gas.flexapp"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.gas.androidtemplate"
+        applicationId = "com.gas.flexapp"
         minSdk = 29
         targetSdk = 35
         versionCode = 1
@@ -27,10 +34,18 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "FLEXAPP_BASE_URL", "\"" + localProperties["flexAppBaseUrl"] + "\"")
+            buildConfigField("String", "CIPHER_KEY", "\"" + localProperties["cipherKey"] + "\"")
+            buildConfigField("String", "DATABASE_NAME", "\"" + localProperties["databaseName"] + "\"")
+            buildConfigField("String", "DATABASE_VERSION", "\"" + localProperties["databaseVersion"] + "\"")
         }
         debug {
             enableAndroidTestCoverage = true
             enableUnitTestCoverage = true
+            buildConfigField("String", "FLEXAPP_BASE_URL", "\"" + localProperties["flexAppBaseUrl"] + "\"")
+            buildConfigField("String", "CIPHER_KEY", "\"" + localProperties["cipherKey"] + "\"")
+            buildConfigField("String", "DATABASE_NAME", "\"" + localProperties["databaseName"] + "\"")
+            buildConfigField("String", "DATABASE_VERSION", "\"" + localProperties["databaseVersion"] + "\"")
         }
     }
     compileOptions {
@@ -42,6 +57,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
     testOptions {
         unitTests {
@@ -66,6 +82,7 @@ dependencies {
 
     implementation(project(":model"))
     implementation(project(":components"))
+    implementation(files("../libs/androidorm.aar"))
 
     testImplementation(libs.junit)
     testImplementation(libs.robolectric)

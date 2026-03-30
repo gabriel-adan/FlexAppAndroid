@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
 
     <application
         android:name=".MainApplication"
@@ -15,15 +18,38 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App">
         <activity
-            android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.App">
+            android:name=".SplashScreenActivity"
+            android:theme="@style/SplashTheme"
+            android:configChanges="orientation|screenSize|screenLayout">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.FlexApp.NoActionBar"
+            android:configChanges="orientation|screenSize|screenLayout" />
+        <activity android:name=".ui.LogInActivity"
+            android:configChanges="orientation|screenSize|screenLayout" />
+        <activity android:name=".ui.FlexAppLoginActivity"
+            android:configChanges="orientation|screenSize|screenLayout" />
+
+        <activity android:name=".ui.ApplicationListActivity"
+            android:theme="@style/Theme.FlexApp.NoActionBar"
+            android:configChanges="orientation|screenSize|screenLayout" />
+
+        <service android:name=".FlexAppAuthenticatorService" android:enabled="true" android:exported="false">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+        </service>
     </application>
 
 </manifest>

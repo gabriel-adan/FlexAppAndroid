@@ -1,5 +1,13 @@
 <resources>
-    <string name="app_name">App</string>
-    <string name="action_settings">Settings</string>
+    <!-- Strings used for FlexApp accounts -->
+    <string name="app_name">FlexApp</string>
+    <string name="account_type">flexapp.com</string>
+    <string name="token_type">access_token</string>
+    <!-- Strings used for Apps accounts -->
+    <string name="full_name">full_name</string>
+    <string name="version_token_type">version_access_token</string>
+    <string name="version_id">versionId</string>
     <!-- Strings used for fragments for navigation -->
+    <string name="empty_application_list">No hay aplicaciones disponibles</string>
+    <string name="available_applications">Aplicaciones disponibles</string>
 </resources>
