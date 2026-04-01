@@ -81,6 +81,7 @@ object NetworkModule {
         return Retrofit.Builder()
             .baseUrl("https://api.com")
             .client(okHttpClient)
+            .addConverterFactory(NullOnEmptyConverterFactory())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

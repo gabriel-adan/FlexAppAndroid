@@ -103,6 +103,7 @@ class FormViewModel @Inject constructor(
                 _onFail.value = NetworkModule.handleErrorResponse(response.errorBody()!!, JsonObject::class.java)
             }
         } catch (e: Exception) {
+            _onFail.value = JsonObject()
             println(e.message)
         }
     }
