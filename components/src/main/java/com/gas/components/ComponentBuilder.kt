@@ -5,16 +5,20 @@ import com.gas.components.forms.FormComponent
 import com.gas.components.forms.FormModel
 import com.gas.components.lists.ExpandableListComponent
 import com.gas.components.lists.ListComponent
+import com.gas.components.maps.MapsComponent
 import com.gas.components.screens.ViewPageComponent
 import com.gas.components.screens.ViewPageModel
 import com.gas.components.serializers.StyleTypeAdapter
 import com.gas.components.serializers.ElementInterfaceAdapter
 import com.gas.components.serializers.ItemListTemplateInterfaceAdapter
 import com.gas.components.serializers.DataSourceTypeAdapter
+import com.gas.components.serializers.GeometryModelTypeAdapter
 import com.gas.model.ComponentTypes
 import com.gas.model.lists.ExpandableListModel
 import com.gas.model.lists.ItemTemplate
 import com.gas.model.lists.ListModel
+import com.gas.model.maps.GeometryModel
+import com.gas.model.maps.MapModel
 import com.gas.model.menus.MenuModel
 import com.gas.model.menus.MenuTypes
 import com.gas.model.sources.DataSource
@@ -31,6 +35,7 @@ object ComponentBuilder {
         .registerTypeAdapter(ItemTemplate::class.java, ItemListTemplateInterfaceAdapter())
         .registerTypeAdapter(DataSource::class.java, DataSourceTypeAdapter())
         .registerTypeAdapter(BaseStyle::class.java, StyleTypeAdapter())
+        .registerTypeAdapter(GeometryModel::class.java, GeometryModelTypeAdapter())
         .create()
 
     fun buildView(json: String, context: Context): Element<*, *> {
@@ -57,6 +62,11 @@ object ComponentBuilder {
                 val expandableListModel = gson.fromJson(json, ExpandableListModel::class.java)
                 val expandableListComponent = ExpandableListComponent(expandableListModel)
                 expandableListComponent.build(context)
+            }
+            ComponentTypes.MAPS -> {
+                val mapsModel = gson.fromJson(json, MapModel::class.java)
+                val mapsComponent = MapsComponent(mapsModel)
+                mapsComponent.build(context)
             }
             else -> TODO("The component type $type not yet implemented")
         }

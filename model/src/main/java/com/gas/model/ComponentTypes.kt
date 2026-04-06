@@ -11,6 +11,8 @@ enum class ComponentTypes {
     VIEW_PAGE,
     @SerializedName("expandable_list")
     EXPANDABLE_LIST,
+    @SerializedName("maps")
+    MAPS,
     @SerializedName("label")
     LABEL,
     @SerializedName("input")

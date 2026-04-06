@@ -41,6 +41,10 @@
             android:theme="@style/Theme.FlexApp.NoActionBar"
             android:configChanges="orientation|screenSize|screenLayout" />
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+
         <service android:name=".FlexAppAuthenticatorService" android:enabled="true" android:exported="false">
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />

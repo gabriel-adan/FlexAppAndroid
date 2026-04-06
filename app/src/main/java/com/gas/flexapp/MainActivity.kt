@@ -23,6 +23,7 @@ import com.gas.components.ComponentBuilder
 import com.gas.flexapp.ui.lists.ExpandableFragment
 import com.gas.flexapp.ui.forms.FormFragment
 import com.gas.flexapp.ui.lists.ListFragment
+import com.gas.flexapp.ui.maps.MapsFragment
 import com.gas.flexapp.ui.pages.PageFragment
 import com.gas.flexapp.viewmodels.ComponentViewModel
 import com.gas.flexapp.viewmodels.FormViewModel
@@ -153,6 +154,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
                 ComponentTypes.EXPANDABLE_LIST -> {
                     ExpandableFragment::class.java
+                }
+                ComponentTypes.MAPS -> {
+                    MapsFragment::class.java
                 } else -> TODO("The component type ${viewContentModel.type} not yet implemented. Menu item [${it.label}]")
             }
             val destination = navController.navigatorProvider.getNavigator(FragmentNavigator::class.java)

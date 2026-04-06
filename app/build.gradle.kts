@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.kotlinx.kover)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.mapsplatform.secrets.plugin)
 }
 
 val localProperties = Properties().apply {
@@ -38,6 +39,7 @@ android {
             buildConfigField("String", "CIPHER_KEY", "\"" + localProperties["cipherKey"] + "\"")
             buildConfigField("String", "DATABASE_NAME", "\"" + localProperties["databaseName"] + "\"")
             buildConfigField("String", "DATABASE_VERSION", "\"" + localProperties["databaseVersion"] + "\"")
+            buildConfigField("String", "MAPS_DIRECTIONS_URL", "\"" + localProperties["googleMapsDirectionBaseUrl"] + "\"")
         }
         debug {
             enableAndroidTestCoverage = true
@@ -46,6 +48,7 @@ android {
             buildConfigField("String", "CIPHER_KEY", "\"" + localProperties["cipherKey"] + "\"")
             buildConfigField("String", "DATABASE_NAME", "\"" + localProperties["databaseName"] + "\"")
             buildConfigField("String", "DATABASE_VERSION", "\"" + localProperties["databaseVersion"] + "\"")
+            buildConfigField("String", "MAPS_DIRECTIONS_URL", "\"" + localProperties["googleMapsDirectionBaseUrl"] + "\"")
         }
     }
     compileOptions {
@@ -79,6 +82,9 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+    implementation(libs.android.maps.utils)
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)
 
     implementation(project(":model"))
     implementation(project(":components"))

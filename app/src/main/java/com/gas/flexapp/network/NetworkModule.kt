@@ -93,7 +93,7 @@ object NetworkModule {
     }
 
     @Provides
-    fun bindAuthService(): AuthService {
+    fun provideAuthService(): AuthService {
         val builder = Retrofit.Builder()
             .baseUrl("https://auth.api.com")
             .addConverterFactory(NullOnEmptyConverterFactory())
@@ -102,12 +102,12 @@ object NetworkModule {
     }
 
     @Provides
-    fun bindRequestService(retrofit: Retrofit): RequestService {
+    fun provideRequestService(retrofit: Retrofit): RequestService {
         return retrofit.create(RequestService::class.java)
     }
 
     @Provides
-    fun bindFormHttpService(retrofit: Retrofit): FormHttpService {
+    fun provideFormHttpService(retrofit: Retrofit): FormHttpService {
         return retrofit.create(FormHttpService::class.java)
     }
 
