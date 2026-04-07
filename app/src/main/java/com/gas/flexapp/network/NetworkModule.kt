@@ -37,6 +37,7 @@ object NetworkModule {
     fun provideFlexAuthService(): FlexAuthService {
         val authBuilder = Retrofit.Builder()
             .baseUrl(BuildConfig.FLEXAPP_BASE_URL)
+            .addConverterFactory(NullOnEmptyConverterFactory())
             .addConverterFactory(GsonConverterFactory.create())
             .apply {
                 val httpClient = OkHttpClient.Builder().apply {
@@ -99,6 +100,11 @@ object NetworkModule {
             .addConverterFactory(NullOnEmptyConverterFactory())
             .addConverterFactory(GsonConverterFactory.create())
         return builder.build().create(AuthService::class.java)
+    }
+
+    @Provides
+    fun provideAppStoreService(): AppStoreService {
+        return flexAppRetrofit.create(AppStoreService::class.java)
     }
 
     @Provides

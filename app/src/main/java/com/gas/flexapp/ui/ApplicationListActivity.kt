@@ -4,10 +4,12 @@ import android.accounts.AccountManager
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
+import com.gas.flexapp.BuildConfig
 import com.gas.flexapp.MainActivity
 import com.gas.flexapp.R
 import com.gas.flexapp.adapters.VersionAdapter
@@ -81,7 +83,14 @@ class ApplicationListActivity : AppCompatActivity() {
         }
 
         lifecycleScope.launch {
-            flexAppViewModel.getApplicationList()
+            val dbFile = getDatabasePath(BuildConfig.DATABASE_NAME)
+            flexAppViewModel.downloadAppStore(dbFile.path, {
+                flexAppViewModel.getApplicationList()
+            }, {
+                binding.loading.visibility = View.GONE
+                flexAppViewModel.getApplicationList()
+                Toast.makeText(this@ApplicationListActivity, it, Toast.LENGTH_LONG).show()
+            })
         }
     }
 }

@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gas.flexapp.local.CipherService
+import com.gas.flexapp.network.AppStoreService
 import com.gas.flexapp.network.ErrorResponse
 import com.gas.flexapp.network.FlexAuthService
 import com.gas.flexapp.network.LogInForm
@@ -18,11 +19,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.FileOutputStream
 import javax.inject.Inject
 
 @HiltViewModel
 class FlexAppViewModel @Inject constructor(
     private val flexAuthService: FlexAuthService,
+    private val appStoreService: AppStoreService,
     private val cipherService: CipherService,
     private val dbContext: DbContext,
 ) : ViewModel() {
@@ -57,6 +60,37 @@ class FlexAppViewModel @Inject constructor(
     fun getApplicationList() = viewModelScope.launch {
         val appStoreDbSet: DbSet<Version, Int> = dbContext.registerEntityMap(Version::class.java)
         _onApplicationList.value = appStoreDbSet.all
+    }
+
+    fun downloadAppStore(dbPath: String, onSuccess: () -> Unit, onFail: (String?) -> Unit) = viewModelScope.launch {
+        try {
+            val response = withContext(Dispatchers.IO) { appStoreService.downloadAppStore() }
+            if (response.isSuccessful) {
+                val bodyContent = response.body()
+                if (bodyContent != null) {
+                    bodyContent.byteStream().use { inputStream ->
+                        val outFileName = dbPath
+                        val output = FileOutputStream(outFileName)
+
+                        output.use { fileOut ->
+                            inputStream.copyTo(fileOut)
+                        }
+
+                        output.flush()
+                        output.close()
+
+                        onSuccess()
+                    }
+                } else {
+                    onFail("Error al guardar los datos en el dispositivo")
+                }
+            } else {
+                val result = NetworkModule.handleErrorResponse(response.errorBody()!!, ErrorResponse::class.java)
+                onFail(result.message)
+            }
+        } catch (ex: Exception) {
+            onFail("Error al descargar la información de aplicación")
+        }
     }
 
     fun encrypt(data: String): String {
